@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="local-gate.js"></script>
+<title>바이브 코딩 4기 강의실</title>
+<meta name="description" content="바이브 코딩 4기 수강생 강의실. 차시별 본수업 슬라이드, 준비물, 체크리스트, 공통 링크.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--paper:#F6F3ED;--paper-2:#EEE9DF;--white:#FDFCFA;--ink:#1B1A17;--ink-2:#3B3934;--mute:#7B7770;--hair:#DBD5C9;--hair-2:#C9C1B1;--green:#163D33;--green-2:#1E5042;--green-soft:#E6ECE7;--gold:#A4895A;
+--serif:"Noto Serif KR","Apple SD Gothic Neo",serif;--sans:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--disp:"Cormorant Garamond","Noto Serif KR",serif;--max:1040px;--gutter:clamp(20px,5vw,48px);
+--fg:#1B1A17;--fg-dim:#3B3934;--fg-mute:#7B7770;--line:#DBD5C9;--lime:#163D33}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.3;word-break:keep-all}
+p,li{word-break:keep-all}
+.num{font-family:var(--disp);font-weight:500}
+.eyebrow{font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--gold)}
+.mark{color:var(--green)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;padding:13px 20px;border:1px solid var(--green);background:var(--green);color:var(--white);cursor:pointer;transition:background .25s,border-color .25s,color .25s;white-space:nowrap;line-height:1}
+.btn:hover{background:var(--green-2)}
+.btn-lime{}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--hair-2)}.btn-ghost:hover{background:var(--white);border-color:var(--ink)}
+.btn.sm{padding:9px 14px;font-size:12.5px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(246,243,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{font-family:var(--serif);font-weight:600;font-size:15px;display:flex;align-items:center;gap:12px}
+.logo b{display:inline-grid;place-items:center;width:30px;height:30px;border:1px solid var(--ink);font-family:var(--disp);font-size:17px;font-weight:600}
+.nav-r{display:flex;gap:14px;align-items:center;font-size:13px;color:var(--mute)}
+.hero{padding:clamp(48px,7vw,80px) 0 36px}
+.hero h1{font-size:clamp(28px,4vw,44px);margin:14px 0 14px}
+.hero p{color:var(--ink-2);font-size:clamp(15px,1.3vw,16.5px);max-width:600px}
+.today{margin-top:30px;border:1px solid var(--hair-2);background:var(--white);padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;position:relative}
+.today::before{content:"";position:absolute;inset:8px;border:1px solid var(--hair);pointer-events:none}
+.today .lbl{font-size:11px;letter-spacing:.16em;font-weight:600;color:var(--gold);margin-bottom:6px;text-transform:uppercase}
+.today h2{font-size:clamp(18px,2.2vw,23px);margin-bottom:4px}
+.today p{font-size:13.5px;color:var(--mute)}
+.today .acts{display:flex;gap:8px;flex-wrap:wrap;position:relative}
+@media (max-width:640px){.today{grid-template-columns:1fr}}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-size:clamp(22px,2.6vw,30px);margin-top:10px}
+.sessions{display:grid;grid-template-columns:1fr;border-top:1px solid var(--hair)}
+.sess{display:grid;grid-template-columns:110px 1fr auto;gap:22px;align-items:center;padding:24px 0;border-bottom:1px solid var(--hair);transition:background .25s}
+.sess:hover{background:var(--white)}
+.sess.now{background:var(--green-soft)}
+.sess.done{opacity:.55}
+.sess .d{font-family:var(--disp);font-weight:500;font-size:34px;line-height:1;color:var(--ink)}
+.sess .d small{display:block;font-family:var(--sans);font-size:11px;font-weight:600;color:var(--mute);margin-top:8px;letter-spacing:.12em;text-transform:uppercase}
+.sess h3{font-size:17px;margin-bottom:5px}
+.sess p{font-size:13.5px;color:var(--ink-2)}
+.sess .out{display:inline-block;margin-top:8px;font-size:12.5px;color:var(--ink)}
+.sess .out b{font-size:10.5px;letter-spacing:.14em;color:var(--green);font-weight:600;margin-right:8px;text-transform:uppercase}
+.sess .acts{display:flex;flex-direction:column;gap:8px;align-items:stretch;padding:0 12px}
+.sess .state{font-size:10.5px;letter-spacing:.14em;font-weight:600;color:var(--mute);text-align:center;text-transform:uppercase}
+.sess.now .state{color:var(--green)}
+@media (max-width:760px){.sess{grid-template-columns:1fr;padding:22px 12px}.sess .d{display:flex;align-items:baseline;gap:12px}.sess .d small{margin:0}.sess .acts{flex-direction:row;padding:0}}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--hair-2);background:var(--white)}
+.card{padding:22px 20px;border-right:1px solid var(--hair);display:flex;flex-direction:column;gap:8px}
+.card:last-child{border-right:0}
+.card .ic{display:none}
+.card h3{font-size:15.5px}
+.card p,.card li{font-size:13.5px;color:var(--ink-2)}
+.card li{position:relative;padding-left:14px}.card li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:1px;background:var(--gold)}
+@media (max-width:760px){.grid3{grid-template-columns:1fr}.card{border-right:0;border-bottom:1px solid var(--hair)}.card:last-child{border-bottom:0}}
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--hair-2);background:var(--white)}
+.lnk{padding:18px 18px;border-right:1px solid var(--hair);display:flex;flex-direction:column;gap:3px;transition:background .2s}
+.lnk:last-child{border-right:0}
+.lnk:hover{background:var(--green-soft)}
+.lnk b{font-size:14.5px;font-family:var(--serif);font-weight:600}.lnk span{font-size:12px;color:var(--mute)}
+.lnk.off{opacity:.5;cursor:default}
+@media (max-width:760px){.links{grid-template-columns:1fr 1fr}.lnk:nth-child(2){border-right:0}.lnk:nth-child(-n+2){border-bottom:1px solid var(--hair)}}
+.keys{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+kbd{font-family:inherit;font-size:11.5px;border:1px solid var(--hair-2);padding:3px 8px;color:var(--ink-2);background:var(--paper)}
+footer{border-top:1px solid var(--hair);padding:28px 0;font-size:12.5px;color:var(--mute);margin-top:20px}
+/* 수업 시작 3단계 · 빠른 메뉴 · 모바일 하단 바 */
+.nav-menu{display:flex;gap:22px;font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.nav-menu a{padding:4px 0;border-bottom:1px solid transparent}.nav-menu a:hover{border-color:var(--ink)}
+@media (max-width:860px){.nav-menu{display:none}}
+@media (max-width:560px){#navToday,#who{display:none}.logo{font-size:14px}}
+.hello h1{font-size:clamp(24px,3.4vw,36px);margin:10px 0 6px}
+.hello p{font-size:14px;color:var(--ink-2);max-width:720px}
+.start{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px;counter-reset:none}
+.go{position:relative;display:flex;flex-direction:column;gap:4px;min-height:118px;padding:20px 22px;background:var(--white);border:1px solid var(--hair-2);transition:background .2s,border-color .2s}
+.go:hover{border-color:var(--ink)}
+.go .n{font-family:var(--disp);font-weight:600;font-size:30px;line-height:1;color:var(--gold)}
+.go b{font-family:var(--serif);font-weight:600;font-size:clamp(18px,2vw,22px)}
+.go small{font-size:13px;color:var(--mute)}
+.go.main{background:var(--green);border-color:var(--green);color:var(--white)}
+.go.main .n{color:#C9B48A}.go.main small{color:rgba(253,252,250,.75)}
+.go.main:hover{background:var(--green-2)}
+.go.off{opacity:.55}
+.go:focus-visible,.quick a:focus-visible,.bar a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.quick a{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;padding:10px 14px;min-height:44px;border:1px solid var(--hair-2);background:transparent;color:var(--ink-2)}
+.quick a:hover{border-color:var(--ink);color:var(--ink)}
+.quick a.off{opacity:.5}
+@media (max-width:760px){.start{grid-template-columns:1fr}.go{min-height:0;flex-direction:row;align-items:center;gap:14px;padding:16px 18px}.go small{margin-left:auto;text-align:right}}
+.bar{display:none}
+@media (max-width:760px){
+  body{padding-bottom:72px}
+  .bar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(253,252,250,.97);border-top:1px solid var(--hair-2);padding-bottom:env(safe-area-inset-bottom)}
+  .bar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:60px;font-size:11.5px;font-weight:600;color:var(--ink-2)}
+  .bar a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6}
+  .bar a.hl{color:var(--green)}
+  .bar a.off{opacity:.45}
+  .toast{bottom:84px}
+}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,10px);background:var(--ink);color:var(--paper);font-weight:500;font-size:13.5px;padding:11px 18px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:99}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+<link rel="stylesheet" href="clay.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="#top"><b>V</b>바이브 코딩 4기 강의실</a>
+  <nav class="nav-menu" aria-label="강의실 메뉴"><a href="#top">오늘 수업</a><a href="#sessions">차시별 슬라이드</a><a href="board.html">시연 결과물</a><a href="#prep">준비물</a><a href="#links">링크 모음</a></nav>
+  <div class="nav-r"><span id="navToday"></span><span id="who" style="color:var(--fg)"></span><button class="btn btn-ghost sm" id="logoutBtn" type="button">로그아웃</button></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="hello">
+    <span class="eyebrow" id="todayLbl">다음 수업</span>
+    <h1 id="todayTitle">수업 정보 불러오는 중</h1>
+    <p id="todayDesc"></p>
+  </div>
+  <ol class="start" aria-label="수업 시작 3단계">
+    <li><a class="go" id="attendBtn" href="#" target="_blank" rel="noopener"><span class="n">1</span><b>출석 체크</b><small>휴대폰으로 출석부 열기</small></a></li>
+    <li><a class="go" id="zoomBtn" href="#" target="_blank" rel="noopener"><span class="n">2</span><b>Zoom 입장</b><small>매주 화 20:30 · 같은 링크</small></a></li>
+    <li><a class="go main" id="todayBtn" href="session1.html"><span class="n">3</span><b>오늘 슬라이드</b><small id="todayDeck">강사 화면 따라가기</small></a></li>
+  </ol>
+  <div class="quick" aria-label="자주 쓰는 곳">
+    <a id="qChat" href="#" target="_blank" rel="noopener">단톡방</a>
+    <a href="board.html">시연 결과물</a>
+    <a id="qDrive" href="#" target="_blank" rel="noopener">자료실 · 녹화본</a>
+    <a href="#sessions">지난 차시 · 전체 슬라이드</a><a href="resources.html">로컬 예시자료</a>
+  </div>
+</div></header>
+
+<section id="sessions"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">차시별 슬라이드</span><h2>총 4차시 · 회당 2시간</h2></div>
+  <div class="sessions">
+    <a class="sess" href="session1.html" data-date="2026-10-06"><div class="d">10/6<small>1차시 · 화</small></div><div><h3>GPT-6 아스트라 세팅과 바이브코딩 첫걸음</h3><p>최신 기능(아스트라 · 데스크톱 앱 · Codex), 맞춤 지침 설정, 작업 공간 · 파일 흐름, 지시-확인-수정 루프</p><span class="out"><b>결과물</b> 콘텐츠 기획서 1장 + 주제 확정</span></div><div class="acts"><span class="state"></span><span class="btn btn-ghost sm">31장 열기</span></div></a>
+    <a class="sess" href="session2.html" data-date="2026-10-13"><div class="d">10/13<small>2차시 · 화</small></div><div><h3>전자책 만들기 : 기획부터 출판 파일까지</h3><p>책 만들기 스킬(bookforge) 설치 확인, 목차 확정, 챕터 원고 루프, 자동 조판 · 품질 검사, 배포 채널</p><span class="out"><b>결과물</b> 미니 전자책 1권 (PDF)</span></div><div class="acts"><span class="state"></span><span class="btn btn-ghost sm">32장 열기</span></div></a>
+    <a class="sess" href="session3.html" data-date="2026-10-20"><div class="d">10/20<small>3차시 · 화</small></div><div><h3>PPT 만들기 : 강의 · 제안용 발표자료 자동 제작</h3><p>예시 슬라이드 디자인 분석 → 내 내용에 적용, 화자 스크립트, 도식 · 차트, PPTX</p><span class="out"><b>결과물</b> 발표 가능한 PPT 1세트 (10장 이상)</span></div><div class="acts"><span class="state"></span><span class="btn btn-ghost sm">32장 열기</span></div></a>
+    <a class="sess" href="session4.html" data-date="2026-10-27"><div class="d">10/27<small>4차시 · 화</small></div><div><h3>영상 만들기와 콘텐츠 패키지 완성</h3><p>영상 제작 스킬(HyperFrames)로 모션그래픽 홍보 영상, 그 영상을 담은 랜딩 페이지 제작 · 배포</p><span class="out"><b>결과물</b> 숏폼 영상 1편 + 소개 페이지 (패키지 완성)</span></div><div class="acts"><span class="state"></span><span class="btn btn-ghost sm">32장 열기</span></div></a>
+  </div>
+</div></section>
+
+<section id="prep"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">매주 준비</span><h2>수업 전 체크</h2></div>
+  <div class="grid3">
+    <div class="card"><h3>항상</h3><ul><li>노트북 + 안정적인 인터넷</li><li>ChatGPT 로그인, 아스트라 선택 가능</li><li>작업 공간 "바이브코딩 4기 - 이름" 열어 두기</li><li>내 폴더 01 ~ 05 열어 두기</li></ul></div>
+    <div class="card"><h3>차시별 준비물</h3><ul><li>1차시 : 만들고 싶은 주제 한 줄 (없어도 됨)</li><li>2차시 : 기획서 최종본, 경험 메모 10줄, Codex · 스킬 설치 완료 (1차시 과제), 캔바 로그인</li><li>3차시 : 전자책 PDF, 발표 상황 1개, <a href="resources.html#samples">예시 슬라이드</a> 내려받기</li><li>4차시 : 세 결과물 파일, 사진 1장, 좋은 문장 1개</li></ul></div>
+    <div class="card"><h3>슬라이드 조작</h3><p>화살표로 넘기고, 프롬프트 옆 복사 버튼으로 바로 가져갑니다.</p><div class="keys"><kbd>← →</kbd><kbd>N 노트</kbd><kbd>O 목차</kbd><kbd>F 전체화면</kbd><kbd>숫자 + Enter</kbd></div></div>
+  </div>
+</div></section>
+
+<section id="links"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">공통 링크</span><h2>수업 중 자주 쓰는 곳</h2></div>
+  <div class="links">
+    <a class="lnk" id="lnkZoom" href="#" target="_blank" rel="noopener"><b>Zoom 강의실</b><span>매주 화 20:30 · 같은 링크</span></a>
+    <a class="lnk" id="lnkChat" href="#" target="_blank" rel="noopener"><b>수강생 단톡방</b><span>질문 · 공지 · 과제 업로드</span></a>
+    <a class="lnk" id="lnkDrive" href="#" target="_blank" rel="noopener"><b>자료실 · 녹화본</b><span>차시별 자료, 프롬프트 템플릿</span></a>
+    <a class="lnk" id="lnkAttend" href="#" target="_blank" rel="noopener"><b>모바일 출석부</b><span>수업마다 출석 체크</span></a>
+    <a class="lnk" href="board.html"><b>시연 결과물</b><span>차시별 완성 파일 내려받기</span></a>
+    <a class="lnk" href="https://chatgpt.com" target="_blank" rel="noopener"><b>ChatGPT</b><span>GPT-6 아스트라 작업 공간</span></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>두온교육(주) · 미래이음연구소 · 바이브 코딩 4기 - GPT-6 아스트라로 전자책·PPT·영상 만들기 · 2026. 10. 6 ~ 10. 27</span><span>로컬 미리보기</span></div></footer>
+<nav class="bar" aria-label="빠른 메뉴">
+  <a id="bAttend" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18"/><path d="M8 12l3 3 5-6"/></svg>출석</a>
+  <a id="bZoom" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="12" height="10"/><path d="M15 11l6-3v8l-6-3"/></svg>Zoom</a>
+  <a id="bSlide" class="hl" href="session1.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12"/><path d="M12 16v4M8 20h8"/></svg>슬라이드</a>
+  <a id="bChat" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>단톡방</a>
+  <a href="board.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M4 19h16"/></svg>결과물</a>
+</nav>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== 설정 : 링크만 바꾸면 됩니다 ===== */
+const CONFIG = {
+  zoomUrl: "",    // Zoom 회의 링크
+  chatUrl: "",    // 단톡방(오픈채팅) 링크
+  driveUrl: "https://duonedu.liveklass.com/classes/321122",   // 원본 강의 자료실·녹화본
+  attendUrl: ""   // 모바일 출석부 (관리자 페이지 → 링크 설정에서 관리)
+};
+/* ====================================== */
+(function(){
+  const $=s=>document.querySelector(s);
+  const u=GATE.getSession(); if(u){ $('#who').textContent=u.name+' 님'; }
+  $('#logoutBtn').onclick=()=>GATE.logout();
+  const sessions=[...document.querySelectorAll(".sess")];
+  const titles=["GPT-6 아스트라 세팅과 바이브코딩 첫걸음","전자책 만들기 : 기획부터 출판 파일까지","PPT 만들기 : 강의 · 제안용 발표자료 자동 제작","영상 만들기와 콘텐츠 패키지 완성"];
+  const now=new Date();
+  // KST 기준 날짜 문자열
+  const kst=new Date(now.getTime()+ (9*60+now.getTimezoneOffset())*60000);
+  const todayStr=kst.toISOString().slice(0,10);
+  let nextIdx=-1;
+  sessions.forEach((s,i)=>{
+    const d=s.dataset.date; const st=s.querySelector(".state");
+    if(d<todayStr){ s.classList.add("done"); st.textContent="완료"; }
+    else if(d===todayStr){ s.classList.add("now"); st.textContent="오늘 수업"; if(nextIdx<0) nextIdx=i; }
+    else { st.textContent="예정"; if(nextIdx<0) nextIdx=i; }
+  });
+  if(nextIdx<0){ nextIdx=3; $("#todayLbl").textContent="과정 수료"; }
+  else if(sessions[nextIdx].dataset.date===todayStr){ $("#todayLbl").textContent="오늘 수업 · 20:30"; }
+  else { $("#todayLbl").textContent="다음 수업 · "+sessions[nextIdx].dataset.date.slice(5).replace("-","/")+" (화) 20:30"; }
+  $("#todayTitle").textContent=(nextIdx+1)+"차시 · "+titles[nextIdx];
+  $("#todayDesc").textContent=sessions[nextIdx].querySelector("p").textContent;
+  $("#todayBtn").href="session"+(nextIdx+1)+".html"; $("#bSlide").href=$("#todayBtn").href;
+  $("#todayDeck").textContent=(nextIdx+1)+"차시 슬라이드 열기";
+  $("#navToday").textContent=$("#todayLbl").textContent;
+
+  const toast=$("#toast"); let tt;
+  function showToast(m){ toast.textContent=m; toast.classList.add("show"); clearTimeout(tt); tt=setTimeout(()=>toast.classList.remove("show"),2000); }
+  function bind(el,key,msg){
+    const set=()=>{ if(CONFIG[key]){ el.href=CONFIG[key]; el.classList.remove("off"); } else { el.classList.add("off"); } };
+    el.addEventListener("click",e=>{ if(!CONFIG[key]){ e.preventDefault(); showToast(msg); } });
+    set(); return set;
+  }
+  const setters=[
+    bind($("#zoomBtn"),"zoomUrl","Zoom 링크는 단톡방 공지를 확인하세요"),
+    bind($("#lnkZoom"),"zoomUrl","Zoom 링크는 단톡방 공지를 확인하세요"),
+    bind($("#lnkChat"),"chatUrl","단톡방 링크는 입금 확인 후 안내됩니다"),
+    bind($("#lnkDrive"),"driveUrl","자료실 링크는 개강 후 안내됩니다"),
+    bind($("#lnkAttend"),"attendUrl","출석부 링크는 수업 시작 때 안내됩니다"),
+    bind($("#attendBtn"),"attendUrl","출석부 링크는 수업 시작 때 안내됩니다"),
+    bind($("#bAttend"),"attendUrl","출석부 링크는 수업 시작 때 안내됩니다"),
+    bind($("#bZoom"),"zoomUrl","Zoom 링크는 단톡방 공지를 확인하세요"),
+    bind($("#bChat"),"chatUrl","단톡방 링크는 입금 확인 후 안내됩니다"),
+    bind($("#qChat"),"chatUrl","단톡방 링크는 입금 확인 후 안내됩니다"),
+    bind($("#qDrive"),"driveUrl","자료실 링크는 개강 후 안내됩니다")
+  ];
+  // 관리자 페이지(admin.html → 링크 설정)에 저장한 링크가 있으면 우선 적용
+  if(window.GATE_CONFIG&&GATE_CONFIG.apiUrl){
+    fetch(GATE_CONFIG.apiUrl,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"settings_get"})})
+      .then(r=>r.ok?r.json():null).then(j=>{ if(!j||!j.settings) return; ["zoomUrl","chatUrl","driveUrl","attendUrl"].forEach(k=>{ const v=j.settings[k]; if(v&&/^https:\/\//i.test(v)) CONFIG[k]=v; }); setters.forEach(f=>f()); })
+      .catch(()=>{ /* API 가 없으면 위 CONFIG 값 사용 */ });
+  }
+})();
+</script>
+</body>
+</html>

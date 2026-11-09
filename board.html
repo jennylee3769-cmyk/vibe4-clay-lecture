@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>시연 결과물 · 바이브 코딩 4기</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23163D33%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2216%22 text-anchor=%22middle%22 fill=%22%23F6F3ED%22 font-family=%22serif%22%3EV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<script src="local-gate.js"></script>
+<style>
+:root{--paper:#F6F3ED;--paper-2:#EEE9DF;--white:#FDFCFA;--ink:#1B1A17;--ink-2:#3B3934;--mute:#7B7770;--hair:#DBD5C9;--hair-2:#C9C1B1;--green:#163D33;--green-2:#1E5042;--green-soft:#E6ECE7;--gold:#A4895A;--coral:#8A3B2E;
+--serif:"Noto Serif KR","Apple SD Gothic Neo",serif;--sans:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--disp:"Cormorant Garamond","Noto Serif KR",serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.top{border-bottom:1px solid var(--hair);background:var(--paper)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+.top b{font-family:var(--serif);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;padding:9px 14px;min-height:40px;border:1px solid var(--green);background:var(--green);color:var(--white);cursor:pointer;text-decoration:none;border-radius:0;white-space:nowrap}
+.btn:hover{background:var(--green-2)}
+.btn.ghost{background:transparent;color:var(--ink-2);border-color:var(--hair-2)}.btn.ghost:hover{border-color:var(--ink);color:var(--ink)}
+.btn:focus-visible,.tabs button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.head{padding:40px 0 18px}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;font-weight:600;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--gold)}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(24px,4vw,32px);letter-spacing:-.01em}
+.lead{color:var(--ink-2);margin-top:8px}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--hair-2);margin:18px 0 0;overflow-x:auto}
+.tabs button{font:inherit;font-size:14px;font-weight:600;padding:12px 16px;min-height:44px;background:none;border:0;border-bottom:2px solid transparent;color:var(--mute);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--green);border-bottom-color:var(--green)}
+.tabs .n{font-family:var(--disp);font-size:15px;margin-left:6px;color:var(--gold)}
+.list{list-style:none;margin:18px 0 60px;display:grid;gap:12px}
+.item{display:grid;grid-template-columns:56px 1fr auto;gap:16px;align-items:center;padding:16px 18px;background:var(--white);border:1px solid var(--hair-2)}
+.ico{width:56px;height:56px;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--hair);font-family:var(--disp);font-weight:600;font-size:15px;color:var(--green);letter-spacing:.04em;text-transform:uppercase}
+.item h2{font-family:var(--serif);font-weight:600;font-size:17px}
+.item p{font-size:14px;color:var(--ink-2);margin-top:2px;white-space:pre-wrap}
+.meta{font-size:12.5px;color:var(--mute);margin-top:4px}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;padding:1px 7px;border:1px solid var(--coral);color:var(--coral);margin-left:6px;vertical-align:2px}
+.empty,.msg{padding:36px 18px;text-align:center;color:var(--mute);background:var(--white);border:1px solid var(--hair-2)}
+.msg.err{color:var(--coral)}
+.upload{margin-top:20px;padding:22px;background:var(--white);border:1px solid var(--hair-2)}
+.upload h2{font-family:var(--serif);font-size:20px}.upload p{color:var(--ink-2);margin:6px 0 14px}
+.fields{display:grid;grid-template-columns:160px 1fr;gap:14px}.fields label{display:grid;gap:6px;font-size:14px;font-weight:600}.fields .wide{grid-column:1/-1}
+.fields input,.fields select,.fields textarea{width:100%;min-width:0;padding:10px;border:1px solid var(--hair-2);background:var(--white);color:var(--ink);font:inherit;font-weight:400;border-radius:0}
+.fields [hidden]{display:none}.fields textarea{resize:vertical}.fields input:focus-visible,.fields select:focus-visible,.fields textarea:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.upload small{display:block;color:var(--mute);font-size:12.5px;margin-top:6px}.upload-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:16px}
+#uploadStatus{font-size:14px;color:var(--green)}#uploadStatus.err{color:var(--coral)}.btn:disabled{opacity:.6;cursor:wait}
+@media (max-width:640px){.fields{grid-template-columns:1fr}.upload{padding:16px}}
+@media (max-width:640px){.item{grid-template-columns:44px 1fr}.ico{width:44px;height:44px;font-size:13px}.item .act{grid-column:1/-1}.item .act .btn{width:100%}}
+</style>
+<link rel="stylesheet" href="clay.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><b>바이브 코딩 4기</b><a class="btn ghost" href="index.html">강의실로</a></div></header>
+<main class="wrap">
+  <div class="head">
+    <div class="eyebrow">Demo Files</div>
+    <h1>시연 결과물</h1>
+    <p class="lead">수업 시연 자료와 교육생 결과물을 차시별로 확인하세요. 교육생이 올린 파일과 링크는 본인과 관리자만 이용할 수 있습니다.</p>
+    <div class="tabs" role="tablist" aria-label="차시">
+      <button role="tab" aria-selected="true" data-s="all">전체<span class="n" data-n="all"></span></button>
+      <button role="tab" aria-selected="false" data-s="1">1차시<span class="n" data-n="1"></span></button>
+      <button role="tab" aria-selected="false" data-s="2">2차시 · 전자책<span class="n" data-n="2"></span></button>
+      <button role="tab" aria-selected="false" data-s="3">3차시 · PPT<span class="n" data-n="3"></span></button>
+      <button role="tab" aria-selected="false" data-s="4">4차시 · 영상<span class="n" data-n="4"></span></button>
+    </div>
+  </div>
+  <section class="upload" id="uploadPanel" aria-labelledby="uploadHeading" hidden>
+    <h2 id="uploadHeading">내 결과물 올리기</h2>
+    <p id="uploadIdentity"></p>
+    <form id="uploadForm">
+      <div class="fields">
+        <label>차시<select id="uploadSession" name="session"><option value="0">공통</option><option value="1">1차시</option><option value="2">2차시 · 전자책</option><option value="3">3차시 · PPT</option><option value="4">4차시 · 영상</option></select></label>
+        <label>자료 제목<input name="title" maxlength="80" required placeholder="예: 나의 첫 전자책"></label>
+        <label class="wide">설명 (선택)<textarea name="desc" rows="2" maxlength="300" placeholder="만든 자료를 간단히 소개해 주세요"></textarea></label>
+        <label>등록 방법<select id="uploadType"><option value="file">파일 업로드</option><option value="link">외부 링크</option></select></label>
+        <label id="fileField">파일 선택<input id="uploadFile" type="file" name="file" required accept=".pdf,.pptx,.ppt,.docx,.xlsx,.zip,.png,.jpg,.jpeg,.webp,.gif,.mp4,.webm,.mov,.mp3,.wav,.md,.txt,.html,.json"></label>
+        <label id="linkField" hidden>자료 링크<input id="uploadUrl" type="url" name="url" maxlength="500" placeholder="https://" disabled></label>
+      </div>
+      <small id="uploadLimit">PDF · PPT · 문서 · 이미지 · 영상 · ZIP 등. 큰 파일은 공유 가능한 HTTPS 링크로 등록하세요.</small>
+      <small>자료 제목·설명·이름은 로그인한 교육생에게 보이며, 파일 다운로드와 링크 열기는 본인과 관리자만 가능합니다.</small>
+      <div class="upload-actions"><button class="btn" id="uploadSubmit" type="submit">결과물 등록</button><span id="uploadStatus" role="status" aria-live="polite"></span></div>
+    </form>
+  </section>
+  <ul class="list" id="list" aria-live="polite"><li class="msg">불러오는 중</li></ul>
+</main>
+<script>
+(function(){
+  const list=document.querySelector('#list');
+  list.innerHTML='<li class="empty">로컬 미리보기에는 원본 서버의 결과물 목록이 포함되지 않습니다.</li>';
+  const panel=document.querySelector('#uploadPanel');
+  if(panel) panel.hidden=true;
+  document.querySelectorAll('.tabs [role="tab"]').forEach(tab=>tab.addEventListener('click',()=>{
+    document.querySelectorAll('.tabs [role="tab"]').forEach(t=>t.setAttribute('aria-selected',t===tab));
+  }));
+})();
+</script>
+</body>
+</html>
